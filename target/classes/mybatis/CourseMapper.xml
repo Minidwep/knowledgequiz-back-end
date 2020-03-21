@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdjzu.knowledgequiz.mapper.CourseMapper">
+
+    <select id="searchByName" resultType="com.sdjzu.knowledgequiz.entity.Course" >
+        select * from course where course.name = #{name}
+    </select>
+
+    <select id="getAll" resultType="com.sdjzu.knowledgequiz.entity.Course">
+        select * from course
+    </select>
+
+    <insert id="addCourse" parameterType="com.sdjzu.knowledgequiz.entity.Course" >
+       insert into course (course.name,course.detail) values (
+            #{course.name}, #{course.detail}
+        )
+    </insert>
+
+    <select id="getById" resultType="com.sdjzu.knowledgequiz.entity.Course">
+        select * from course where id = #{id}
+    </select>
+
+    <update id="updateCourse" parameterType="com.sdjzu.knowledgequiz.entity.Course">
+        update course set course.detail = #{course.detail} ,course.name = #{course.name} where course.id =#{course.id}
+    </update>
+
+    <delete id="deleteCourse" parameterType="int">
+       delete from course where course.id = #{id}
+    </delete>
+
+    <select id="getCourByKey" resultType="com.sdjzu.knowledgequiz.entity.Course">
+        select * from course where CONCAT(course.name,course.detail)
+        LIKE CONCAT('%',#{keyword},'%')
+    </select>
+
+
+</mapper>

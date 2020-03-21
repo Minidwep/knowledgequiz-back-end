@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="857a32d5-3f38-4644-9b96-6773d590a3fb" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:/apache-maven-3.5.4-bin/apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="C:\apache-maven-3.5.4-bin\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YteFMKNTI8BUJtXU9JWC3eUWr1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="MyBatisLogPluginindexNum" value="4418" />
+    <property name="MyBatisLogPluginparameters" value="Parameters:" />
+    <property name="MyBatisLogPluginpreparing" value="Preparing:" />
+    <property name="MyBatisLogPluginrunning" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\王冠锐\IdeaProjects\knowledge-quiz\src\main\resources\mybatis" />
+      <recent name="C:\Users\王冠锐\IdeaProjects\knowledge-quiz\src\main\java\com\sdjzu\knowledgequiz\util" />
+      <recent name="C:\Users\王冠锐\IdeaProjects\knowledge-quiz\src\main\resources\templates" />
+      <recent name="C:\Users\王冠锐\IdeaProjects\knowledge-quiz\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sdjzu.knowledgequiz.serviceImpl" />
+      <recent name="com.sdjzu.knowledgequiz.service" />
+      <recent name="com.sdjzu.knowledgequiz.mapper" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.sdjzu.knowledgequiz.bean" />
+      <recent name="com.sdjzu.knowledgequiz.service" />
+      <recent name="com.sdjzu.knowledgequiz.mapper" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.KnowledgeQuizApplication">
+    <configuration name="Person" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sdjzu.knowledgequiz.util.Person" />
+      <module name="knowledge-quiz" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdjzu.knowledgequiz.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KnowledgeQuizApplicationTests.CourseMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="knowledge-quiz" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdjzu.knowledgequiz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sdjzu.knowledgequiz" />
+      <option name="MAIN_CLASS_NAME" value="com.sdjzu.knowledgequiz.KnowledgeQuizApplicationTests" />
+      <option name="METHOD_NAME" value="CourseMapperTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KnowledgeQuizApplicationTests.pojo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="knowledge-quiz" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdjzu.knowledgequiz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sdjzu.knowledgequiz" />
+      <option name="MAIN_CLASS_NAME" value="com.sdjzu.knowledgequiz.KnowledgeQuizApplicationTests" />
+      <option name="METHOD_NAME" value="pojo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KnowledgeQuizApplicationTests.teacher" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="knowledge-quiz" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdjzu.knowledgequiz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sdjzu.knowledgequiz" />
+      <option name="MAIN_CLASS_NAME" value="com.sdjzu.knowledgequiz.KnowledgeQuizApplicationTests" />
+      <option name="METHOD_NAME" value="teacher" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KnowledgeQuizApplicationTests.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="knowledge-quiz" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdjzu.knowledgequiz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sdjzu.knowledgequiz" />
+      <option name="MAIN_CLASS_NAME" value="com.sdjzu.knowledgequiz.KnowledgeQuizApplicationTests" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KnowledgeQuizApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="knowledge-quiz" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sdjzu.knowledgequiz.KnowledgeQuizApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.KnowledgeQuizApplicationTests.pojo" />
+        <item itemvalue="JUnit.KnowledgeQuizApplicationTests.teacher" />
+        <item itemvalue="JUnit.KnowledgeQuizApplicationTests.test1" />
+        <item itemvalue="JUnit.KnowledgeQuizApplicationTests.CourseMapperTest" />
+        <item itemvalue="Application.Person" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="857a32d5-3f38-4644-9b96-6773d590a3fb" name="Default Changelist" comment="" />
+      <created>1583766212881</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583766212881</updated>
+      <workItem from="1583766221927" duration="34546000" />
+      <workItem from="1583853395579" duration="24186000" />
+      <workItem from="1583958804401" duration="1229000" />
+      <workItem from="1584014313593" duration="606000" />
+      <workItem from="1584026192425" duration="8269000" />
+      <workItem from="1584043117921" duration="4299000" />
+      <workItem from="1584080031058" duration="1796000" />
+      <workItem from="1584084220369" duration="9730000" />
+      <workItem from="1584631618011" duration="42749000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="218" key="#Auto_Import" timestamp="1584790091843">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="552" y="218" key="#Auto_Import/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584790091843" />
+    <state x="679" y="362" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583781560703">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="679" y="362" key="#com.intellij.fileTypes.FileTypeChooser/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1583781560703" />
+    <state x="765" y="276" key="#com.intellij.ide.util.MemberChooser" timestamp="1584798653366">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="765" y="276" key="#com.intellij.ide.util.MemberChooser/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584798653366" />
+    <state x="690" y="306" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584770971928">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="690" y="306" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584770971928" />
+    <state width="1877" height="452" key="GridCell.Tab.0.bottom" timestamp="1584805815298">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="362" key="GridCell.Tab.0.bottom/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584722129184" />
+    <state width="1877" height="452" key="GridCell.Tab.0.bottom/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584805815298" />
+    <state width="1877" height="382" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1584080286567" />
+    <state width="1877" height="452" key="GridCell.Tab.0.center" timestamp="1584805815298">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="362" key="GridCell.Tab.0.center/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584722129183" />
+    <state width="1877" height="452" key="GridCell.Tab.0.center/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584805815298" />
+    <state width="1877" height="382" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1584080286565" />
+    <state width="1877" height="452" key="GridCell.Tab.0.left" timestamp="1584805815296">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="362" key="GridCell.Tab.0.left/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584722129183" />
+    <state width="1877" height="452" key="GridCell.Tab.0.left/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584805815296" />
+    <state width="1877" height="382" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1584080286564" />
+    <state width="1877" height="452" key="GridCell.Tab.0.right" timestamp="1584805815298">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="362" key="GridCell.Tab.0.right/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584722129184" />
+    <state width="1877" height="452" key="GridCell.Tab.0.right/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584805815298" />
+    <state width="1877" height="382" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1584080286565" />
+    <state width="1877" height="452" key="GridCell.Tab.1.bottom" timestamp="1584805815299">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="362" key="GridCell.Tab.1.bottom/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584722129184" />
+    <state width="1877" height="452" key="GridCell.Tab.1.bottom/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584805815299" />
+    <state width="1877" height="382" key="GridCell.Tab.1.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1584080286567" />
+    <state width="1877" height="452" key="GridCell.Tab.1.center" timestamp="1584805815298">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="362" key="GridCell.Tab.1.center/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584722129184" />
+    <state width="1877" height="452" key="GridCell.Tab.1.center/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584805815298" />
+    <state width="1877" height="382" key="GridCell.Tab.1.center/0.40.1920.1040@0.40.1920.1040" timestamp="1584080286567" />
+    <state width="1877" height="452" key="GridCell.Tab.1.left" timestamp="1584805815298">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="362" key="GridCell.Tab.1.left/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584722129184" />
+    <state width="1877" height="452" key="GridCell.Tab.1.left/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584805815298" />
+    <state width="1877" height="382" key="GridCell.Tab.1.left/0.40.1920.1040@0.40.1920.1040" timestamp="1584080286567" />
+    <state width="1877" height="452" key="GridCell.Tab.1.right" timestamp="1584805815299">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="362" key="GridCell.Tab.1.right/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584722129184" />
+    <state width="1877" height="452" key="GridCell.Tab.1.right/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584805815299" />
+    <state width="1877" height="382" key="GridCell.Tab.1.right/0.40.1920.1040@0.40.1920.1040" timestamp="1584080286567" />
+    <state x="602" y="228" key="Maven.ArtifactSearchDialog" timestamp="1583857361902">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="602" y="228" key="Maven.ArtifactSearchDialog/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1583857361902" />
+    <state x="461" y="202" key="SettingsEditor" timestamp="1584084198626">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="461" y="202" key="SettingsEditor/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584084198626" />
+    <state x="640" y="384" key="com.intellij.ide.util.TipDialog" timestamp="1584084226868">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="640" y="384" key="com.intellij.ide.util.TipDialog/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584084226868" />
+    <state x="292" y="324" key="new project wizard" timestamp="1584718495830">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="292" y="324" key="new project wizard/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584718495830" />
+    <state x="616" y="213" width="672" height="676" key="search.everywhere.popup" timestamp="1584715839800">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="616" y="213" width="672" height="676" key="search.everywhere.popup/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584715839800" />
+  </component>
+</project>

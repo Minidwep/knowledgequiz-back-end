@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdjzu.knowledgequiz.mapper.StudentMapper">
+
+
+    <select id="searchByAcc" resultType="com.sdjzu.knowledgequiz.entity.Student">
+        select * from student where student.account = #{account}
+    </select>
+
+    <select id="selectAll" resultType="com.sdjzu.knowledgequiz.entity.Student">
+        select * from student
+    </select>
+
+
+    <insert id="addStudent" parameterType="com.sdjzu.knowledgequiz.entity.Student" >
+       insert into student (student.account,student.pwd,student.name,student.college)
+             values (
+            #{student.account},
+            #{student.pwd},
+            #{student.name},
+            #{student.college}
+        )
+    </insert>
+
+    <update id="updateStudent" parameterType="com.sdjzu.knowledgequiz.entity.Student" >
+       update student set
+            student.pwd = #{student.pwd},
+            student.name = #{student.name},
+            student.college = #{student.college}
+            where account = #{student.account}
+
+    </update>
+
+    <delete id="deleteStudent">
+        delete from student where student.account = #{account}
+    </delete>
+
+    <select id="getStuByKey" resultType="com.sdjzu.knowledgequiz.entity.Student">
+        select * from student where CONCAT(student.account,student.name,student.pwd)
+        LIKE CONCAT('%',#{keyword},'%')
+    </select>
+
+</mapper>

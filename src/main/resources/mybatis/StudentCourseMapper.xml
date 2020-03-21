@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdjzu.knowledgequiz.mapper.StudentCourseMapper">
+
+
+    <select id="searchStuCourseByAccAndCid" resultType="com.sdjzu.knowledgequiz.entity.StudentCourse">
+        select * from student_course
+        where student_course.account = #{account}
+        and student_course.course_id = #{courseId}
+    </select>
+
+    <insert id="addStuCourse" parameterType="com.sdjzu.knowledgequiz.entity.StudentCourse">
+       insert into student_course (student_course.account,student_course.course_id)
+             values (
+            #{studentCourse.account},
+            #{studentCourse.courseId}
+        )
+    </insert>
+
+    <select id="getStuCourse" resultType="com.sdjzu.knowledgequiz.entity.StudentCourse">
+        select * from student_course where student_course.account = #{account}
+    </select>
+
+    <delete id="delStuCourse" parameterType="com.sdjzu.knowledgequiz.entity.StudentCourse">
+        delete from student_course WHERE course_id =#{studentCourse.courseId}
+        and account = #{studentCourse.account}
+    </delete>
+
+
+</mapper>
