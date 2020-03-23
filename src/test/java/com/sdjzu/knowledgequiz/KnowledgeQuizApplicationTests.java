@@ -1,15 +1,19 @@
 package com.sdjzu.knowledgequiz;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sdjzu.knowledgequiz.entity.Question;
 import com.sdjzu.knowledgequiz.entity.Student;
 import com.sdjzu.knowledgequiz.entity.Teacher;
 import com.sdjzu.knowledgequiz.mapper.*;
-import com.sdjzu.knowledgequiz.pojo.QuestionPojo;
+import com.sdjzu.knowledgequiz.service.AnswerService;
 import com.sdjzu.knowledgequiz.service.QuestionService;
 import com.sdjzu.knowledgequiz.service.TeacherCourseService;
 import com.sdjzu.knowledgequiz.service.TeacherService;
 import com.sdjzu.knowledgequiz.util.Msg;
+import com.sdjzu.knowledgequiz.vo.AnswerVO;
+import com.sdjzu.knowledgequiz.vo.QuestionVO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -39,6 +43,8 @@ class KnowledgeQuizApplicationTests {
     QuestionMapper questionMapper;
     @Autowired
     QuestionService questionService;
+    @Autowired
+    AnswerService answerService;
     @Test
     void contextLoads() {
         try {
@@ -131,13 +137,31 @@ class KnowledgeQuizApplicationTests {
         }
 
     }
-//    @Test
-//    void pojo(){
-//        QueryWrapper<Question> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.eq("account", "110002");
-//        Msg msg = questionService.questionList(1, queryWrapper);
-//        for (QuestionPojo questionPojo : (List<QuestionPojo>)msg.getExtend().get("questionPojoList")) {
-//            System.out.println(questionPojo.toString());
-//        }
-//    }
+    @Test
+    void pojo(){
+        Page<QuestionVO> page = new Page<>(1,5);  // 查询第n页，每页返回5条
+
+        IPage<QuestionVO> questionByAcc = questionMapper.getQuestionByAcc(page,"110002");
+        for (QuestionVO questionVO : questionByAcc.getRecords()) {
+            System.out.println(questionVO.toString());
+        }
+    }
+    @Test
+    void anser(){
+        List<AnswerVO> answerVO = answerService.getAnswerVO(141);
+        for (AnswerVO vo : answerVO) {
+            System.out.println(vo.toString());
+
+        }
+    }
+    @Test
+    void question(){
+        Page<QuestionVO> objectPage = new Page<>(1,5);
+
+        IPage<QuestionVO> questionVOIPage = questionService.selectQuestionVOByCourseId(objectPage, 36);
+        for (QuestionVO record : questionVOIPage.getRecords()) {
+            System.out.println(record.toString());
+        }
+
+    }
 }

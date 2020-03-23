@@ -1,19 +1,16 @@
-package com.sdjzu.knowledgequiz.entity;
+package com.sdjzu.knowledgequiz.vo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.alibaba.druid.filter.AutoLoad;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("question")//@TableName中的值对应着表名
-public class Question {
-    @TableId(type = IdType.AUTO)
+public class QuestionVO {
     int id;
     String title;
     String detail;
@@ -24,5 +21,6 @@ public class Question {
     Date downTime;
     int status;
     int star;
-
+    String userName;
+    String courseName;
 }

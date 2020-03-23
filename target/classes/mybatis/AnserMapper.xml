@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdjzu.knowledgequiz.mapper.AnswerMapper">
+    <select id="getAnswerVO" resultType="com.sdjzu.knowledgequiz.vo.AnswerVO">
+        select answer.*,name username from answer
+        LEFT JOIN `user`
+        ON answer.account = user.account
+        WHERE question_id = #{questionId}
+        order by up_time desc
+    </select>
+</mapper>

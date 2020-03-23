@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sdjzu.knowledgequiz.mapper.QuestionMapper">
+    <select id="getQuestionByAcc" resultType="com.sdjzu.knowledgequiz.vo.QuestionVO">
+        SELECT t.*,course.name course_name FROM
+        (SELECT question.*,`user`.name user_name
+        FROM question
+        LEFT JOIN `user`
+        ON question.account = user.account
+        WHERE question.status > 0
+        ) t
+        LEFT JOIN course
+        ON t.course_id = course.id
+        WHERE course_id IN (select course_id from teacher_course where teacher_course.account =#{account})
+        order by t.up_time desc
+    </select>
+    <select id="selectQuestionVOByCourseId" resultType="com.sdjzu.knowledgequiz.vo.QuestionVO">
+        SELECT t.*,course.name course_name FROM
+        (SELECT question.*,`user`.name user_name
+        FROM question
+        LEFT JOIN `user`
+        ON question.account = user.account
+        WHERE question.status > 0 and question.course_id = #{courseId}
+        ) t
+        LEFT JOIN course
+        ON t.course_id = course.id
+
+
+    </select>
+    <select id="selectQuestionVOByCourseIdDown" resultType="com.sdjzu.knowledgequiz.vo.QuestionVO">
+        SELECT t.*,course.name course_name FROM
+        (SELECT question.*,`user`.name user_name
+        FROM question
+        LEFT JOIN `user`
+        ON question.account = user.account
+        WHERE question.status = 0 and question.course_id = #{courseId}
+        ) t
+        LEFT JOIN course
+        ON t.course_id = course.id
+
+
+    </select>
+
 
 </mapper>
