@@ -3,6 +3,7 @@ package com.sdjzu.knowledgequiz.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,4 +17,7 @@ public class User {
     int id;
     String account;
     String userType;
+    String name;
+    @JsonIgnore
+    String pwd;
 }

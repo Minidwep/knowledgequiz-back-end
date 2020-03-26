@@ -3,6 +3,7 @@ package com.sdjzu.knowledgequiz;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.sdjzu.knowledgequiz.entity.Answer;
 import com.sdjzu.knowledgequiz.entity.Question;
 import com.sdjzu.knowledgequiz.entity.Student;
 import com.sdjzu.knowledgequiz.entity.Teacher;
@@ -164,4 +165,15 @@ class KnowledgeQuizApplicationTests {
         }
 
     }
+    @Test
+    void answer() {
+        QueryWrapper<Answer> queryWrapper = new QueryWrapper<>();
+
+        queryWrapper.eq("account", "110002");
+        List<Answer> list = answerService.list(queryWrapper);
+
+        list.forEach(item->System.out.println(item.toString()));
+    }
+
+
 }

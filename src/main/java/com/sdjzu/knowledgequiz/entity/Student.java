@@ -13,7 +13,6 @@ public class Student {
     String name;
     String pwd;
     String college;
-
     String[] courseInit;
 
     public Student(String account, String name, String pwd, String college, String[] courseInit) {

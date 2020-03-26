@@ -232,8 +232,6 @@ public class AdminController {
         }
 
     }
-
-
     /**
      * 分页查询
      * @param pn
@@ -506,7 +504,17 @@ public class AdminController {
         Course course = courseService.searchById(id);
         return Msg.success().add("course", course);
     }
+    //    测试跨域
+    @GetMapping("/hello")
+    @ResponseBody
+    public String hello(){
+        return "helo";
+    }
 
-
-
+    //    测试跨域
+    @GetMapping("/hello/hello")
+    @ResponseBody
+    public String hell1o(){
+        return "helo";
+    }
 }

@@ -13,4 +13,6 @@ import java.util.List;
 
 public interface AnswerMapper extends BaseMapper<Answer> {
     List<AnswerVO> getAnswerVO(@Param("questionId") int questionId);
+
+    List<AnswerVO> getAnswerVOByAccount(@Param("account") String account);
 }

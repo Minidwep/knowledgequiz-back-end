@@ -11,4 +11,5 @@ import java.util.List;
 @Service
 public interface AnswerService extends IService<Answer> {
     List<AnswerVO> getAnswerVO(int questionId);
+    List<AnswerVO> getAnswerVOByAccount(String account);
 }

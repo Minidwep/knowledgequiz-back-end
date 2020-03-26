@@ -18,4 +18,5 @@ public class AnswerVO {
     String detail;
     Date upTime;
     String username;
+    String title;
 }

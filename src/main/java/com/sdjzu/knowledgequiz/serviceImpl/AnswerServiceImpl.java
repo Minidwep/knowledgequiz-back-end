@@ -21,4 +21,9 @@ public class AnswerServiceImpl extends ServiceImpl<AnswerMapper, Answer> impleme
     public List<AnswerVO> getAnswerVO(int questionId) {
         return answerMapper.getAnswerVO(questionId);
     }
+
+    @Override
+    public List<AnswerVO> getAnswerVOByAccount(String account) {
+        return answerMapper.getAnswerVOByAccount(account);
+    }
 }

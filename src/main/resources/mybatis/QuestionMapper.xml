@@ -37,8 +37,6 @@
         ) t
         LEFT JOIN course
         ON t.course_id = course.id
-
-
     </select>
 
 

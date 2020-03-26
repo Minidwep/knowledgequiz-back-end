@@ -8,4 +8,14 @@
         WHERE question_id = #{questionId}
         order by up_time desc
     </select>
+
+    <select id="getAnswerVOByAccount" resultType="com.sdjzu.knowledgequiz.vo.AnswerVO">
+        select answer.*,question.title from answer
+        LEFT JOIN question
+        ON question.id = answer.question_id
+        WHERE answer.account = #{account}
+        order by up_time desc
+    </select>
+
+
 </mapper>
