@@ -38,6 +38,41 @@
         LEFT JOIN course
         ON t.course_id = course.id
     </select>
+    <select id="selectQuestionVOByQId" resultType="com.sdjzu.knowledgequiz.vo.QuestionVO">
+        SELECT t.*,course.name course_name FROM
+        (SELECT question.*,`user`.name user_name
+        FROM question
+        LEFT JOIN `user`
+        ON question.account = user.account
+        WHERE question.status > 0 and question.id = #{questionId}
+        ) t
+        LEFT JOIN course
+        ON t.course_id = course.id
+    </select>
+    <select id="getQuestionByStuAcc" resultType="com.sdjzu.knowledgequiz.vo.QuestionVO">
+        SELECT t.*,course.name course_name FROM
+        (SELECT question.*,`user`.name user_name
+        FROM question
+        LEFT JOIN `user`
+        ON question.account = user.account
+        WHERE question.status > 0
+        ) t
+        LEFT JOIN course
+        ON t.course_id = course.id
+        WHERE course_id IN (select course_id from student_course where student_course.account =#{account})
+        order by t.up_time desc
+    </select>
+    <select id="selectQuestionVOByKey" resultType="com.sdjzu.knowledgequiz.vo.QuestionVO">
+    SELECT * from(SELECT t.*,course.name course_name
+    FROM (SELECT question.*,`user`.name user_name
+    FROM question
+    LEFT JOIN `user`
+    ON question.account = user.account
+    WHERE question.status > 0 ) t
+    LEFT JOIN course
+    ON t.course_id = course.id) m
+    WHERE CONCAT(m.title,m.detail,m.user_name,m.course_name)
+    LIKE CONCAT('%',#{keyword},'%')
 
-
+    </select>
 </mapper>

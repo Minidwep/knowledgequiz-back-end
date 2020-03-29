@@ -4,15 +4,12 @@ import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.sdjzu.knowledgequiz.entity.Answer;
-import com.sdjzu.knowledgequiz.entity.Course;
-import com.sdjzu.knowledgequiz.entity.Question;
-import com.sdjzu.knowledgequiz.service.AnswerService;
-import com.sdjzu.knowledgequiz.service.QuestionService;
-import com.sdjzu.knowledgequiz.service.TeacherCourseService;
+import com.sdjzu.knowledgequiz.entity.*;
+import com.sdjzu.knowledgequiz.service.*;
 import com.sdjzu.knowledgequiz.util.FileUtil;
 import com.sdjzu.knowledgequiz.util.Msg;
 import com.sdjzu.knowledgequiz.vo.AnswerVO;
+import com.sdjzu.knowledgequiz.vo.PasswordVO;
 import com.sdjzu.knowledgequiz.vo.QuestionVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +37,12 @@ public class TeacherController {
     @Autowired
     AnswerService answerService;
 
+    @Autowired
+    RewordService rewordService;
+
+    @Autowired
+    TeacherService teacherService;
+
     @Value("${file.path}")
     private String  imgPath;
 
@@ -47,6 +50,7 @@ public class TeacherController {
     @PostMapping("/question")
     public Msg saveQuestion(@RequestBody Question question){
         question.setUpTime(new Date());
+        question.setStatus(1);
         boolean save = questionService.save(question);
         if(save)
             return Msg.success();
@@ -80,7 +84,7 @@ public class TeacherController {
     public Msg getQuestionList(@PathVariable("account") String account, @PathVariable("pn") Integer pn){
 
         Page<QuestionVO> page = new Page<>(pn,5);  // 查询第n页，每页返回5条
-        IPage<QuestionVO> questionByAcc = questionService.selectQuestionVO(page,account);
+        IPage<QuestionVO> questionByAcc = questionService.selectQuestionVOByTea(page,account);
         return Msg.success().add("pageInfo", questionByAcc);
     }
     //      回答问题
@@ -176,7 +180,7 @@ public class TeacherController {
         List<Answer> answerStarNum = answerService.list(queryWrapper2);
 //        提问数
         QueryWrapper<Question> queryWrapper3 = new QueryWrapper<>();
-        queryWrapper2.eq("account", account);
+        queryWrapper3.eq("account", account);
         List<Question> questionNum = questionService.list(queryWrapper3);
         return Msg.success().add("answerNum",answerNum.size()).add("answerStarNum",answerStarNum.size())
                 .add("questionNum",questionNum.size());
@@ -191,15 +195,60 @@ public class TeacherController {
         IPage<Question> iPage = questionService.page(page, questionQueryWrapper);
         return Msg.success().add("pageInfo",iPage);
     }
-    //    查看某个用户下所有的回答的信息
-    @GetMapping("/answerList/one/{account}/{pn}")
+    //    查看某个用户下所有的回答
+    @GetMapping("/answerList/One/{account}/{pn}")
     public Msg getAnswerByOne(@PathVariable("account") String account,@PathVariable("pn") int pn){
         QueryWrapper<Answer> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("account", account);
-        Page<Answer> page = new Page<>(pn,5);
-        IPage<Answer> iPage = answerService.page(page, queryWrapper);
-        List<AnswerVO> answerVOByAccount = answerService.getAnswerVOByAccount(account);
+        Page<AnswerVO> page = new Page<>(pn,5);
+        IPage<AnswerVO> iPage = answerService.getAnswerVOByAccount(page, account);
+        return Msg.success().add("pageInfo",iPage);
+    }
+//    得到某个问题的相信信息
+    @GetMapping("/question/{questionId}")
+    public Msg getQuestionByQid(@PathVariable("questionId") int questionId){
+        QuestionVO questionVO = questionService.selectQuestionVOByQId(questionId);
+        return Msg.success().add("question",questionVO);
+    }
+//    模糊查询
+    @GetMapping("/questionList/keyword/{keyword}")
+    public Msg getQuestionByKeyword(@PathVariable("keyword") String keyword){
+        List<QuestionVO> questionVOList = questionService.selectQuestionVOByKeyword(keyword);
+        return Msg.success().add("questionList",questionVOList);
+    }
+//    发布奖励
+    @PostMapping("/reword")
+    public Msg createReword(@RequestBody Reword reword){
+        rewordService.save(reword);
         return Msg.success();
+    }
+//    删除奖励
+    @DeleteMapping("/reword/{id}")
+    public Msg deleteReword(@PathVariable("id") int id){
+        rewordService.removeById(id);
+        return Msg.success();
+    }
+//    查看奖励
+    @GetMapping("/reword/course/{courseId}")
+    public Msg getReword(@PathVariable("courseId") String courseId){
+        QueryWrapper<Reword> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("course_id",courseId);
+        List<Reword> list = rewordService.list(queryWrapper);
+        return Msg.success().add("rewordList",list);
+    }
+
+    //    修改密码
+    @PostMapping("/password")
+    public Msg rePassword(@RequestBody PasswordVO passwordVO){
+        String account = passwordVO.getAccount();
+        Teacher teacher = teacherService.searchByAcc(account);
+        if(  passwordVO.getExPwd().equals(teacher.getPwd())){
+            teacher.setPwd(passwordVO.getPwd());
+            teacherService.updateTeacher(teacher);
+            return Msg.success();
+        } else {
+            return Msg.fail();
+        }
     }
 
 }

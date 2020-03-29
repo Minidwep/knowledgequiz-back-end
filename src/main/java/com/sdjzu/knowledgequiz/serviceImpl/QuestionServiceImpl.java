@@ -31,8 +31,13 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
     StudentMapper studentMapper;
 
     @Override
-    public IPage<QuestionVO> selectQuestionVO(Page<QuestionVO> page, String account) {
+    public IPage<QuestionVO> selectQuestionVOByTea(Page<QuestionVO> page, String account) {
         return questionMapper.getQuestionByAcc(page, account);
+    }
+
+    @Override
+    public IPage<QuestionVO> selectQuestionVOByStu(Page<QuestionVO> page, String account) {
+        return questionMapper.getQuestionByStuAcc(page, account);
     }
 
     @Override
@@ -42,6 +47,16 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
     @Override
     public IPage<QuestionVO> selectQuestionVOByCourseIdDown(Page<QuestionVO> page, int courseId) {
         return questionMapper.selectQuestionVOByCourseIdDown(page,courseId);
+    }
+
+    @Override
+    public QuestionVO selectQuestionVOByQId(int questionId) {
+        return questionMapper.selectQuestionVOByQId(questionId);
+    }
+
+    @Override
+    public List<QuestionVO> selectQuestionVOByKeyword(String keyword) {
+        return questionMapper.selectQuestionVOByKey(keyword);
     }
 
 }

@@ -1,5 +1,7 @@
 package com.sdjzu.knowledgequiz.serviceImpl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.sdjzu.knowledgequiz.entity.Answer;
 import com.sdjzu.knowledgequiz.entity.User;
@@ -23,7 +25,8 @@ public class AnswerServiceImpl extends ServiceImpl<AnswerMapper, Answer> impleme
     }
 
     @Override
-    public List<AnswerVO> getAnswerVOByAccount(String account) {
-        return answerMapper.getAnswerVOByAccount(account);
+    public IPage<AnswerVO> getAnswerVOByAccount(Page<AnswerVO> page, String account) {
+        return answerMapper.getAnswerVOByAccount(page,account);
     }
+
 }

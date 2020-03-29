@@ -174,6 +174,14 @@ class KnowledgeQuizApplicationTests {
 
         list.forEach(item->System.out.println(item.toString()));
     }
+    @Test
+    void answerVo(){
+        Page<AnswerVO> page = new Page<>(1,5);
+        IPage<AnswerVO> answerVOByAccount = answerService.getAnswerVOByAccount(page, "110002");
+        for (AnswerVO record : answerVOByAccount.getRecords()) {
+            System.out.println(record.toString());
+        }
+    }
 
 
 }
