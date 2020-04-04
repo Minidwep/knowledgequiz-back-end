@@ -1,10 +1,16 @@
 package com.sdjzu.knowledgequiz.controller;
 
+import cn.hutool.poi.excel.ExcelUtil;
+import cn.hutool.poi.excel.ExcelWriter;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.sdjzu.knowledgequiz.entity.*;
+import com.sdjzu.knowledgequiz.pojo.StudentExcel;
 import com.sdjzu.knowledgequiz.service.*;
 import com.sdjzu.knowledgequiz.util.Msg;
+import com.sdjzu.knowledgequiz.vo.QuestionVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +36,9 @@ public class AdminController {
     StudentService studentService;
     @Autowired
     StudentCourseService studentCourseService;
+
+    @Autowired
+    QuestionService questionService;
 
     /**
      * 接受excel文件，课程去重，插入课程，再插入教师信息。
@@ -504,17 +513,142 @@ public class AdminController {
         Course course = courseService.searchById(id);
         return Msg.success().add("course", course);
     }
-    //    测试跨域
-    @GetMapping("/hello")
+
+
+
+
+    /**
+     * 分页查询问题
+     * @param pn
+     * @return
+     */
+    @GetMapping("/questionList/{pn}")
     @ResponseBody
-    public String hello(){
-        return "helo";
+    public Msg getQuestionListByPageHelper(@PathVariable("pn") Integer pn){
+        Page<QuestionVO> page = new Page<>(pn,7);
+        IPage<QuestionVO> questionList = questionService.getQuestionList(page);
+        System.out.println(questionList.getRecords().size());
+        return Msg.success().add("pageInfo",questionList);
     }
 
-    //    测试跨域
-    @GetMapping("/hello/hello")
+    //    更新问题
+    @PutMapping("/question")
     @ResponseBody
-    public String hell1o(){
-        return "helo";
+    public Msg updateQuestion(@RequestBody Question question){
+        System.out.println(question.toString());
+        boolean flag = questionService.updateById(question);
+        if(flag)
+            return Msg.success();
+        else
+            return Msg.fail();
     }
+
+    //    删除问题
+    @DeleteMapping("/question/{id}")
+    @ResponseBody
+    public Msg deleteQuestion(@PathVariable("id")int id){
+        boolean flag = questionService.removeById(id);
+        if(flag)
+            return Msg.success();
+        else
+            return Msg.fail();
+    }
+    //    模糊查询  NO
+    @GetMapping("/questionList/keyword/{keyword}/{pn}")
+    @ResponseBody
+    public Msg getQuestionByKeyword(@PathVariable("keyword") String keyword,@PathVariable("pn") Integer pn){
+        Page<QuestionVO> page = new Page<>(pn,7);
+        IPage<QuestionVO> questionVOList = questionService.selectQuestionVOByKeywordAndIpage(page,keyword);
+        return Msg.success().add("questionList",questionVOList);
+    }
+    //    得到某个问题的相信信息
+    @GetMapping("/question/{questionId}")
+    @ResponseBody
+    public Msg getQuestionByQid(@PathVariable("questionId") int questionId){
+        QuestionVO questionVO = questionService.selectQuestionVOByQId(questionId);
+        return Msg.success().add("question",questionVO);
+    }
+    //    模糊查询
+    @GetMapping("/questionList/keyword/{keyword}")
+    @ResponseBody
+    public Msg getQuestionByKeyword(@PathVariable("keyword") String keyword){
+        List<QuestionVO> questionVOList = questionService.selectQuestionVOByKeyword(keyword);
+        return Msg.success().add("questionList",questionVOList);
+    }
+    @GetMapping("/courseList")
+    @ResponseBody
+    public Msg getCourseList(){
+        List<Course> list = courseService.getAll();
+        return Msg.success().add("courseList",list);
+    }
+
+    @PutMapping("/studentCourse")
+    @ResponseBody
+    public Msg addStudentCourse(@RequestBody StudentCourse studentCourse){
+
+        try {
+            StudentCourse flag = studentCourseService.searchStuCourseByAccAndCid(studentCourse.getAccount(), studentCourse.getCourseId());
+            if(flag == null){
+                studentCourseService.addStuCourse(studentCourse);
+                return Msg.success();
+            } else {
+                return Msg.fail();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Msg.fail();
+        }
+
+    }
+
+    @PutMapping("/teacherCourse")
+    @ResponseBody
+    public Msg addTeacherCourse(@RequestBody TeacherCourse teacherCourse){
+        try {
+            TeacherCourse flag = teacherCourseService.searchTeaCourseByAccAndCid(teacherCourse.getAccount(),teacherCourse.getCourseId());
+            if(flag == null){
+                teacherCourseService.addTeaCourse(teacherCourse);
+                return Msg.success();
+            } else {
+                return Msg.fail();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Msg.fail();
+        }
+
+    }
+
+//    导出学生信息
+    @GetMapping("/excelOut/student")
+    @ResponseBody
+    public Msg outPutStudent(){
+        List<Student> students = studentService.getAll();
+        List<StudentExcel> StudentExcels = new ArrayList<>();
+
+        for (Student student : students) {
+            List<Course> stuCourse = studentCourseService.getStuCourse(student.getAccount());
+            StringBuffer stringBuffer = new StringBuffer();
+            for (Course course : stuCourse) {
+                stringBuffer.append(course.getName()+",");
+            }
+            String str = stringBuffer.toString();
+            String courseInit = str.substring(0,str.length()-1);
+            StudentExcel studentExcel = new StudentExcel(student.getAccount(),student.getName(),student.getCollege(),courseInit);
+            StudentExcels.add(studentExcel);
+        }
+        ExcelWriter writer = ExcelUtil.getWriter("e:/photo/writeBeanTest.xlsx");
+        //自定义标题别名
+        writer.addHeaderAlias("account", "学号");
+        writer.addHeaderAlias("name", "姓名");
+        writer.addHeaderAlias("college", "学院");
+        writer.addHeaderAlias("courseInit", "选课");
+        writer.write(StudentExcels, true);
+        // 关闭writer，释放内存
+        writer.close();
+        return Msg.success();
+    }
+
 }

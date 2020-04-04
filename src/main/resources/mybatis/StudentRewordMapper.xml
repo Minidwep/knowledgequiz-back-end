@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdjzu.knowledgequiz.mapper.StudentRewordMapper">
+
+    <select id="getStudentRewordVOByRewordId" resultType="com.sdjzu.knowledgequiz.vo.StudentRewordVO">
+        select b.*,t.name tea_name from (select sr.*,s.name stu_name from student_reword sr
+        LEFT JOIN student s
+        ON s.account = sr.stu_account) b
+		LEFT JOIN teacher t
+		ON b.tea_account = t.account
+		WHERE b.reword_id = #{rewordId}
+    </select>
+
+
+</mapper>

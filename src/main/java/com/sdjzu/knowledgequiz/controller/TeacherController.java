@@ -11,6 +11,7 @@ import com.sdjzu.knowledgequiz.util.Msg;
 import com.sdjzu.knowledgequiz.vo.AnswerVO;
 import com.sdjzu.knowledgequiz.vo.PasswordVO;
 import com.sdjzu.knowledgequiz.vo.QuestionVO;
+import com.sdjzu.knowledgequiz.vo.StudentRewordVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -42,6 +43,9 @@ public class TeacherController {
 
     @Autowired
     TeacherService teacherService;
+
+    @Autowired
+    StudentRewordService studentRewordService;
 
     @Value("${file.path}")
     private String  imgPath;
@@ -249,6 +253,40 @@ public class TeacherController {
         } else {
             return Msg.fail();
         }
+    }
+    //   设置奖励问题
+    @PutMapping("/stuReword")
+    public Msg stuReword(@RequestBody StudentReword studentReword){
+        QueryWrapper<StudentReword> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("stu_account",studentReword.getStuAccount())
+                .eq("reword_id",studentReword.getRewordId());
+        StudentReword one = studentRewordService.getOne(queryWrapper);
+        if (one == null){
+            boolean flag = studentRewordService.save(studentReword);
+            if(flag)
+                return Msg.success();
+            else
+                return Msg.fail();
+        }
+        else {
+            return Msg.fail().add("message", "奖励已经存在");
+        }
+
+    }
+
+    //   查询某个奖励下的学生
+    @GetMapping("/stuReword/{rewordId}/{pn}")
+    public Msg getRewordByRewordId(@PathVariable("rewordId") String rewordId,@PathVariable("pn") int pn){
+        Page<StudentRewordVO> page = new Page<>(pn,5);
+        IPage<StudentRewordVO> iPage = studentRewordService.getStudentRewordVOByRewordId(page, rewordId);
+        return Msg.success().add("pageInfo",iPage);
+    }
+    //    删除奖励
+    @DeleteMapping("/stuReword/{id}")
+    public Msg deleteStuReword(@PathVariable("id") int id){
+
+        studentRewordService.removeById(id);
+        return Msg.success();
     }
 
 }

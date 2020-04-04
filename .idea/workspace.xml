@@ -2,23 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="857a32d5-3f38-4644-9b96-6773d590a3fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/entity/Reword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/mapper/RewordMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/service/RewordService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/serviceImpl/RewordServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/vo/PasswordVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/conifg/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/conifg/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/controller/StudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/entity/StudentReword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/mapper/StudentRewordMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/pojo/StudentExcel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/service/StudentRewordService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/serviceImpl/StudentRewordServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/vo/StudentRewordVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/StudentRewordMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/controller/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/controller/TeacherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/mapper/AnswerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/mapper/AnswerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/entity/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/mapper/QuestionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/mapper/QuestionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/service/AnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/service/AnswerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/service/QuestionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/serviceImpl/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/serviceImpl/AnswerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/serviceImpl/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/serviceImpl/QuestionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/QuestionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/QuestionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sdjzu/knowledgequiz/KnowledgeQuizApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sdjzu/knowledgequiz/KnowledgeQuizApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/AnserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/AnserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mybatis/QuestionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/QuestionMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +57,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="MyBatisLogPluginindexNum" value="3733" />
+    <property name="MyBatisLogPluginindexNum" value="6411" />
     <property name="MyBatisLogPluginparameters" value="Parameters:" />
     <property name="MyBatisLogPluginpreparing" value="Preparing:" />
     <property name="MyBatisLogPluginrunning" value="true" />
@@ -70,19 +68,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/sdjzu/knowledgequiz/service" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/mybatis" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\王冠锐\IdeaProjects\knowledge-quiz\src\main\java\com\sdjzu\knowledgequiz\service" />
-      <recent name="C:\Users\王冠锐\IdeaProjects\knowledge-quiz\src\main\java\com\sdjzu\knowledgequiz\controller" />
-      <recent name="C:\Users\王冠锐\IdeaProjects\knowledge-quiz\src\main\java\com\sdjzu\knowledgequiz\pojo" />
-      <recent name="C:\Users\王冠锐\IdeaProjects\knowledge-quiz\src\main\java\com\sdjzu\knowledgequiz\conifg" />
-      <recent name="C:\Users\王冠锐\IdeaProjects\knowledge-quiz\src\main\resources\mybatis" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.sdjzu.knowledgequiz.bean" />
+      <recent name="com.sdjzu.knowledgequiz.service" />
+      <recent name="com.sdjzu.knowledgequiz.mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.sdjzu.knowledgequiz.serviceImpl" />
@@ -91,10 +87,12 @@
       <recent name="com.sdjzu.knowledgequiz.entity" />
       <recent name="com.sdjzu.knowledgequiz.conifg" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.sdjzu.knowledgequiz.bean" />
-      <recent name="com.sdjzu.knowledgequiz.service" />
-      <recent name="com.sdjzu.knowledgequiz.mapper" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\王冠锐\IdeaProjects\knowledge-quiz\src\main\resources\mybatis" />
+      <recent name="C:\Users\王冠锐\IdeaProjects\knowledge-quiz\src\main\java\com\sdjzu\knowledgequiz\service" />
+      <recent name="C:\Users\王冠锐\IdeaProjects\knowledge-quiz\src\main\java\com\sdjzu\knowledgequiz\controller" />
+      <recent name="C:\Users\王冠锐\IdeaProjects\knowledge-quiz\src\main\java\com\sdjzu\knowledgequiz\pojo" />
+      <recent name="C:\Users\王冠锐\IdeaProjects\knowledge-quiz\src\main\java\com\sdjzu\knowledgequiz\conifg" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.KnowledgeQuizApplication">
@@ -220,7 +218,14 @@
       <workItem from="1585194722813" duration="13983000" />
       <workItem from="1585290271472" duration="2433000" />
       <workItem from="1585379668835" duration="6597000" />
-      <workItem from="1585464948945" duration="10234000" />
+      <workItem from="1585464948945" duration="10775000" />
+      <workItem from="1585577001591" duration="1275000" />
+      <workItem from="1585636852424" duration="657000" />
+      <workItem from="1585637680249" duration="11000" />
+      <workItem from="1585658025930" duration="1137000" />
+      <workItem from="1585718168485" duration="406000" />
+      <workItem from="1585894099886" duration="4442000" />
+      <workItem from="1585983788525" duration="17259000" />
     </task>
     <servers />
   </component>
@@ -236,63 +241,63 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="679" y="362" key="#com.intellij.fileTypes.FileTypeChooser/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1583781560703" />
-    <state x="765" y="276" key="#com.intellij.ide.util.MemberChooser" timestamp="1585467240377">
+    <state x="765" y="276" key="#com.intellij.ide.util.MemberChooser" timestamp="1586014695944">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="765" y="276" key="#com.intellij.ide.util.MemberChooser/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1585291641348" />
-    <state x="765" y="276" key="#com.intellij.ide.util.MemberChooser/0.40.1920.1040@0.40.1920.1040" timestamp="1585467240377" />
+    <state x="765" y="276" key="#com.intellij.ide.util.MemberChooser/0.40.1920.1040@0.40.1920.1040" timestamp="1586014695944" />
     <state x="690" y="306" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584770971928">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="690" y="306" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584770971928" />
-    <state width="1877" height="191" key="GridCell.Tab.0.bottom" timestamp="1585484498068">
+    <state width="1877" height="339" key="GridCell.Tab.0.bottom" timestamp="1586015505870">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1493" height="74" key="GridCell.Tab.0.bottom/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584879637883" />
     <state width="1877" height="600" key="GridCell.Tab.0.bottom/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1585297262344" />
-    <state width="1877" height="191" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1585484498068" />
-    <state width="1877" height="191" key="GridCell.Tab.0.center" timestamp="1585484498068">
+    <state width="1877" height="339" key="GridCell.Tab.0.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1586015505870" />
+    <state width="1877" height="339" key="GridCell.Tab.0.center" timestamp="1586015505868">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1493" height="74" key="GridCell.Tab.0.center/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584879637883" />
     <state width="1877" height="600" key="GridCell.Tab.0.center/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1585297262343" />
-    <state width="1877" height="191" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1585484498068" />
-    <state width="1877" height="191" key="GridCell.Tab.0.left" timestamp="1585484498067">
+    <state width="1877" height="339" key="GridCell.Tab.0.center/0.40.1920.1040@0.40.1920.1040" timestamp="1586015505868" />
+    <state width="1877" height="339" key="GridCell.Tab.0.left" timestamp="1586015505866">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1493" height="74" key="GridCell.Tab.0.left/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584879637883" />
     <state width="1877" height="600" key="GridCell.Tab.0.left/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1585297262343" />
-    <state width="1877" height="191" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1585484498067" />
-    <state width="1877" height="191" key="GridCell.Tab.0.right" timestamp="1585484498068">
+    <state width="1877" height="339" key="GridCell.Tab.0.left/0.40.1920.1040@0.40.1920.1040" timestamp="1586015505866" />
+    <state width="1877" height="339" key="GridCell.Tab.0.right" timestamp="1586015505869">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1493" height="74" key="GridCell.Tab.0.right/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584879637883" />
     <state width="1877" height="600" key="GridCell.Tab.0.right/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1585297262344" />
-    <state width="1877" height="191" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1585484498068" />
-    <state width="1877" height="191" key="GridCell.Tab.1.bottom" timestamp="1585484498069">
+    <state width="1877" height="339" key="GridCell.Tab.0.right/0.40.1920.1040@0.40.1920.1040" timestamp="1586015505869" />
+    <state width="1877" height="339" key="GridCell.Tab.1.bottom" timestamp="1586015505872">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1493" height="74" key="GridCell.Tab.1.bottom/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584879637884" />
     <state width="1877" height="246" key="GridCell.Tab.1.bottom/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1585291895967" />
-    <state width="1877" height="191" key="GridCell.Tab.1.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1585484498069" />
-    <state width="1877" height="191" key="GridCell.Tab.1.center" timestamp="1585484498069">
+    <state width="1877" height="339" key="GridCell.Tab.1.bottom/0.40.1920.1040@0.40.1920.1040" timestamp="1586015505872" />
+    <state width="1877" height="339" key="GridCell.Tab.1.center" timestamp="1586015505871">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1493" height="74" key="GridCell.Tab.1.center/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584879637884" />
     <state width="1877" height="246" key="GridCell.Tab.1.center/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1585291895967" />
-    <state width="1877" height="191" key="GridCell.Tab.1.center/0.40.1920.1040@0.40.1920.1040" timestamp="1585484498069" />
-    <state width="1877" height="191" key="GridCell.Tab.1.left" timestamp="1585484498068">
+    <state width="1877" height="339" key="GridCell.Tab.1.center/0.40.1920.1040@0.40.1920.1040" timestamp="1586015505871" />
+    <state width="1877" height="339" key="GridCell.Tab.1.left" timestamp="1586015505870">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1493" height="74" key="GridCell.Tab.1.left/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584879637884" />
     <state width="1877" height="246" key="GridCell.Tab.1.left/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1585291895967" />
-    <state width="1877" height="191" key="GridCell.Tab.1.left/0.40.1920.1040@0.40.1920.1040" timestamp="1585484498068" />
-    <state width="1877" height="191" key="GridCell.Tab.1.right" timestamp="1585484498069">
+    <state width="1877" height="339" key="GridCell.Tab.1.left/0.40.1920.1040@0.40.1920.1040" timestamp="1586015505870" />
+    <state width="1877" height="339" key="GridCell.Tab.1.right" timestamp="1586015505871">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="1493" height="74" key="GridCell.Tab.1.right/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584879637884" />
     <state width="1877" height="246" key="GridCell.Tab.1.right/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1585291895967" />
-    <state width="1877" height="191" key="GridCell.Tab.1.right/0.40.1920.1040@0.40.1920.1040" timestamp="1585484498069" />
+    <state width="1877" height="339" key="GridCell.Tab.1.right/0.40.1920.1040@0.40.1920.1040" timestamp="1586015505871" />
     <state x="602" y="228" key="Maven.ArtifactSearchDialog" timestamp="1583857361902">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
@@ -305,24 +310,26 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="461" y="202" key="SettingsEditor/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584084198626" />
-    <state x="640" y="384" key="com.intellij.ide.util.TipDialog" timestamp="1585464977033">
+    <state x="640" y="384" key="com.intellij.ide.util.TipDialog" timestamp="1585718174610">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="-1408" y="273" key="com.intellij.ide.util.TipDialog/0.40.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1584943349559" />
     <state x="640" y="384" key="com.intellij.ide.util.TipDialog/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1585195375270" />
-    <state x="640" y="384" key="com.intellij.ide.util.TipDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1585464977033" />
+    <state x="640" y="384" key="com.intellij.ide.util.TipDialog/0.40.1920.1040/1920.0.1536.824@0.40.1920.1040" timestamp="1585718174610" />
+    <state x="640" y="384" key="com.intellij.ide.util.TipDialog/0.40.1920.1040@0.40.1920.1040" timestamp="1585637679847" />
     <state x="261" y="120" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584945319016">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="261" y="120" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584945319016" />
-    <state x="292" y="324" key="new project wizard" timestamp="1584718495830">
+    <state x="292" y="324" key="new project wizard" timestamp="1585577074797">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="292" y="324" key="new project wizard/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1584718495830" />
-    <state x="616" y="213" width="672" height="676" key="search.everywhere.popup" timestamp="1585384134397">
+    <state x="292" y="324" key="new project wizard/0.40.1920.1040/1920.0.1536.824@0.40.1920.1040" timestamp="1585577074797" />
+    <state x="616" y="213" width="672" height="676" key="search.everywhere.popup" timestamp="1586008070043">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="616" y="213" width="672" height="676" key="search.everywhere.popup/0.40.1920.1040/-1920.0.1536.824@0.40.1920.1040" timestamp="1585224215704" />
-    <state x="616" y="213" width="672" height="676" key="search.everywhere.popup/0.40.1920.1040@0.40.1920.1040" timestamp="1585384134397" />
+    <state x="616" y="213" width="672" height="676" key="search.everywhere.popup/0.40.1920.1040@0.40.1920.1040" timestamp="1586008070043" />
   </component>
 </project>

@@ -14,6 +14,9 @@ import java.util.List;
 
 public interface QuestionMapper extends BaseMapper<Question> {
     IPage<QuestionVO> getQuestionByAcc(@Param("page") Page<QuestionVO> page, @Param("account") String account);
+
+    IPage<QuestionVO> getQuestionList(@Param("page") Page<QuestionVO> page);
+
     IPage<QuestionVO> getQuestionByStuAcc(@Param("page") Page<QuestionVO> page, @Param("account") String account);
 
     IPage<QuestionVO> selectQuestionVOByCourseId(@Param("page") Page<QuestionVO> page,@Param("courseId") int courseId);
@@ -23,5 +26,7 @@ public interface QuestionMapper extends BaseMapper<Question> {
     QuestionVO selectQuestionVOByQId(@Param("questionId")int questionId);
 
     List<QuestionVO> selectQuestionVOByKey(@Param("keyword")String keyword);
+    IPage<QuestionVO> selectQuestionVOByKeywordAndIpage(@Param("page")Page<QuestionVO> page,@Param("keyword")String keyword);
+
 }
 

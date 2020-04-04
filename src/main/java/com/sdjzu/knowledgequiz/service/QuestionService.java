@@ -27,4 +27,8 @@ public interface QuestionService extends IService<Question> {
     QuestionVO selectQuestionVOByQId(int questionId);
 
     List<QuestionVO> selectQuestionVOByKeyword(String keyword);
+
+    IPage<QuestionVO> getQuestionList(Page<QuestionVO> page);
+
+    IPage<QuestionVO> selectQuestionVOByKeywordAndIpage(Page<QuestionVO> page,String keyword);
 }

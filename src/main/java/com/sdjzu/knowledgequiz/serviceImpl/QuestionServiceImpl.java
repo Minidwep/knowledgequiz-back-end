@@ -59,4 +59,14 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
         return questionMapper.selectQuestionVOByKey(keyword);
     }
 
+    @Override
+    public IPage<QuestionVO> getQuestionList(Page<QuestionVO> page) {
+        return questionMapper.getQuestionList(page);
+    }
+
+    @Override
+    public IPage<QuestionVO> selectQuestionVOByKeywordAndIpage(Page<QuestionVO> page, String keyword) {
+        return questionMapper.selectQuestionVOByKeywordAndIpage(page,keyword);
+    }
+
 }

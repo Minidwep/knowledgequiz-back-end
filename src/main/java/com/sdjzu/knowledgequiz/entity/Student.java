@@ -14,7 +14,6 @@ public class Student {
     String pwd;
     String college;
     String[] courseInit;
-
     public Student(String account, String name, String pwd, String college, String[] courseInit) {
         this.account = account;
         this.name = name;
