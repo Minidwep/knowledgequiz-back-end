@@ -622,7 +622,7 @@ public class AdminController {
     }
 
 //    导出学生信息
-    @GetMapping("/excelOut/student")
+    @GetMapping("/excelOut/question")
     @ResponseBody
     public Msg outPutStudent(){
         List<Student> students = studentService.getAll();

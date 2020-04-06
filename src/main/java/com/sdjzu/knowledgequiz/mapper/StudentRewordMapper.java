@@ -14,4 +14,7 @@ import java.util.List;
 public interface StudentRewordMapper extends BaseMapper<StudentReword> {
 
     IPage<StudentRewordVO> getStudentRewordVOByRewordId(@Param("page")Page<StudentRewordVO> page, @Param("rewordId") String rewordId);
+
+    IPage<StudentRewordVO> getStudentRewordVOByAccount(@Param("page")Page<StudentRewordVO> page, @Param("account") String account);
+
 }

@@ -11,5 +11,14 @@
 		WHERE b.reword_id = #{rewordId}
     </select>
 
+    <select id="getStudentRewordVOByAccount" resultType="com.sdjzu.knowledgequiz.vo.StudentRewordVO">
+   select b.*,t.name tea_name from (select sr.*,s.name stu_name from student_reword sr
+        LEFT JOIN student s
+        ON s.account = sr.stu_account) b
+		LEFT JOIN teacher t
+		ON b.tea_account = t.account
+        WHERE stu_account = #{account}
+    </select>
+
 
 </mapper>

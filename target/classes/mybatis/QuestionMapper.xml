@@ -75,6 +75,47 @@
     LIKE CONCAT('%',#{keyword},'%')
 
     </select>
+
+    <select id="selectQuestionVOByKeyAndCourse" resultType="com.sdjzu.knowledgequiz.vo.QuestionVO">
+    SELECT * from(SELECT t.*,course.name course_name
+    FROM (SELECT question.*,`user`.name user_name
+    FROM question
+    LEFT JOIN `user`
+    ON question.account = user.account
+    WHERE question.status > 0 and question.course_id = #{courseId}) t
+    LEFT JOIN course
+    ON t.course_id = course.id) m
+    WHERE CONCAT(m.title,m.detail,m.user_name,m.course_name)
+    LIKE CONCAT('%',#{keyword},'%')
+
+    </select>
+    <select id="selectQuestionVOHaveAnswerByKey" resultType="com.sdjzu.knowledgequiz.vo.QuestionVO">
+    SELECT * from(SELECT t.*,course.name course_name
+    FROM (SELECT question.*,`user`.name user_name
+    FROM question
+    LEFT JOIN `user`
+    ON question.account = user.account
+    WHERE question.status > 0 and question.star >0 and question.course_id = #{courseId}) t
+    LEFT JOIN course
+    ON t.course_id = course.id) m
+    WHERE CONCAT(m.title,m.detail,m.user_name,m.course_name)
+    LIKE CONCAT('%',#{keyword},'%')
+
+    </select>
+    <select id="selectQuestionVOHaveStarByKey" resultType="com.sdjzu.knowledgequiz.vo.QuestionVO">
+    SELECT * from(SELECT t.*,course.name course_name
+    FROM (SELECT question.*,`user`.name user_name
+    FROM question
+    LEFT JOIN `user`
+    ON question.account = user.account
+    WHERE question.status > 0 and question.status =2 and question.course_id = #{courseId} ) t
+    LEFT JOIN course
+    ON t.course_id = course.id) m
+    WHERE CONCAT(m.title,m.detail,m.user_name,m.course_name)
+    LIKE CONCAT('%',#{keyword},'%')
+
+    </select>
+
     <select id="getQuestionList" resultType="com.sdjzu.knowledgequiz.vo.QuestionVO">
         SELECT t.*,course.name course_name FROM
         (SELECT question.*,`user`.name user_name

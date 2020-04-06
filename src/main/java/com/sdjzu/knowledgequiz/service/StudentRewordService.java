@@ -8,6 +8,6 @@ import com.sdjzu.knowledgequiz.vo.StudentRewordVO;
 import org.springframework.stereotype.Service;
 @Service
 public interface StudentRewordService extends IService<StudentReword> {
-
+     IPage<StudentRewordVO> getStudentRewordVOByAccount(Page<com.sdjzu.knowledgequiz.vo.StudentRewordVO> page, String account);
     IPage<StudentRewordVO> getStudentRewordVOByRewordId(Page<StudentRewordVO> page, String answerId);
 }

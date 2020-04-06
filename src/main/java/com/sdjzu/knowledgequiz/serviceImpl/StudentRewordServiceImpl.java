@@ -20,8 +20,15 @@ import java.util.List;
 public class StudentRewordServiceImpl extends
         ServiceImpl<StudentRewordMapper, StudentReword> implements StudentRewordService {
 
+
     @Autowired
     StudentRewordMapper studentRewordMapper;
+
+    @Override
+    public IPage<StudentRewordVO> getStudentRewordVOByAccount(Page<StudentRewordVO> page, String account) {
+        return studentRewordMapper.getStudentRewordVOByAccount(page, account);
+    }
+
     @Override
     public IPage<StudentRewordVO> getStudentRewordVOByRewordId(Page<StudentRewordVO> page, String rewordId) {
         return studentRewordMapper.getStudentRewordVOByRewordId(page, rewordId);

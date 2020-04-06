@@ -1,10 +1,14 @@
 package com.sdjzu.knowledgequiz.controller;
 
+import cn.hutool.Hutool;
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.poi.excel.ExcelUtil;
+import cn.hutool.poi.excel.ExcelWriter;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sdjzu.knowledgequiz.entity.*;
+import com.sdjzu.knowledgequiz.pojo.QuestionExcel;
 import com.sdjzu.knowledgequiz.service.*;
 import com.sdjzu.knowledgequiz.util.FileUtil;
 import com.sdjzu.knowledgequiz.util.Msg;
@@ -20,10 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.plaf.SpinnerUI;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/teacher")
@@ -96,6 +97,9 @@ public class TeacherController {
     public Msg createAnswer(@RequestBody Answer answer){
         answer.setUpTime(new Date());
         boolean save = answerService.save(answer);
+        Question byId = questionService.getById(answer.getQuestionId());
+        byId.setStar(byId.getStar()+1);
+        questionService.updateById(byId);
         if(save)
             return Msg.success();
         else
@@ -281,6 +285,7 @@ public class TeacherController {
         IPage<StudentRewordVO> iPage = studentRewordService.getStudentRewordVOByRewordId(page, rewordId);
         return Msg.success().add("pageInfo",iPage);
     }
+    
     //    删除奖励
     @DeleteMapping("/stuReword/{id}")
     public Msg deleteStuReword(@PathVariable("id") int id){
@@ -288,5 +293,82 @@ public class TeacherController {
         studentRewordService.removeById(id);
         return Msg.success();
     }
+
+    //    导出模糊查询--单关键字
+    @GetMapping("/questionList/keyword/no/{courseId}/{keyword}")
+    public Msg getQuestionVOByKeyword(@PathVariable("keyword") String keyword,@PathVariable("courseId") int courseId){
+        List<QuestionVO> questionVOList = questionService.selectQuestionVOByKeyAndCourse(keyword,courseId);
+        return Msg.success().add("questionList",questionVOList);
+    }
+    //    导出模糊查询--关键字+有答案
+    @GetMapping("/questionList/keyword/answer/{courseId}/{keyword}")
+    public Msg getQuestionVOByHaveAnswerKeyword(@PathVariable("keyword") String keyword,@PathVariable("courseId") int courseId){
+        List<QuestionVO> questionVOList = questionService.selectQuestionVOHaveAnswerByKey(keyword,courseId);
+        return Msg.success().add("questionList",questionVOList);
+    }
+    //    导出模糊查询--关键字+有采纳
+    @GetMapping("/questionList/keyword/star/{courseId}/{keyword}")
+    public Msg getQuestionVOByHaveStarKeyword(@PathVariable("keyword") String keyword,@PathVariable("courseId") int courseId){
+        List<QuestionVO> questionVOList = questionService.selectQuestionVOHaveStarByKey(keyword,courseId);
+        return Msg.success().add("questionList",questionVOList);
+    }
+
+
+    //    导出模糊查询--单关键字
+    @GetMapping("/questionList/excel/keyword/no/{courseId}/{keyword}")
+    public Msg getExcelQuestionVOByKeyword(@PathVariable("keyword") String keyword,@PathVariable("courseId") int courseId){
+        List<QuestionVO> questionVOList = questionService.selectQuestionVOByKeyAndCourse(keyword,courseId);
+        List<QuestionExcel> excels = new ArrayList<>();
+        for (QuestionVO questionVO : questionVOList) {
+            QuestionExcel questionExcel = new QuestionExcel(questionVO.getUserName(),
+                    questionVO.getCourseName(), questionVO.getTitle(),questionVO.getDetail());
+            excels.add(questionExcel);
+        }
+        String simpleUUID = IdUtil.simpleUUID();
+        String filePath = imgPath+"/"+simpleUUID+".xlsx";
+        ExcelWriter writer = ExcelUtil.getWriter(filePath);
+        writer.write(excels, true);
+        // 关闭writer，释放内存
+        writer.close();
+        return Msg.success().add("fileName","images/"+simpleUUID+".xlsx");
+    }
+    //    导出模糊查询--关键字+有答案
+    @GetMapping("/questionList/excel/keyword/answer/{courseId}/{keyword}")
+    public Msg getExcelQuestionVOByHaveAnswerKeyword(@PathVariable("keyword") String keyword,@PathVariable("courseId") int courseId){
+        List<QuestionVO> questionVOList = questionService.selectQuestionVOHaveAnswerByKey(keyword,courseId);
+        List<QuestionExcel> excels = new ArrayList<>();
+        for (QuestionVO questionVO : questionVOList) {
+            QuestionExcel questionExcel = new QuestionExcel(questionVO.getUserName(),
+                    questionVO.getCourseName(), questionVO.getTitle(),questionVO.getDetail());
+            excels.add(questionExcel);
+        }
+        String simpleUUID = IdUtil.simpleUUID();
+        String filePath = imgPath+"/"+simpleUUID+".xlsx";
+        ExcelWriter writer = ExcelUtil.getWriter(filePath);
+        writer.write(excels, true);
+        // 关闭writer，释放内存
+        writer.close();
+        return Msg.success().add("fileName","images/"+simpleUUID+".xlsx");
+    }
+    //    导出模糊查询--关键字+有采纳
+    @GetMapping("/questionList/excel/keyword/star/{courseId}/{keyword}")
+    public Msg getExcelQuestionVOByHaveStarKeyword(@PathVariable("keyword") String keyword,@PathVariable("courseId") int courseId){
+        List<QuestionVO> questionVOList = questionService.selectQuestionVOHaveStarByKey(keyword,courseId);
+        List<QuestionExcel> excels = new ArrayList<>();
+        for (QuestionVO questionVO : questionVOList) {
+            QuestionExcel questionExcel = new QuestionExcel(questionVO.getUserName(),
+                    questionVO.getCourseName(), questionVO.getTitle(),questionVO.getDetail());
+            excels.add(questionExcel);
+        }
+        String simpleUUID = IdUtil.simpleUUID();
+        String filePath = imgPath+"/"+simpleUUID+".xlsx";
+        ExcelWriter writer = ExcelUtil.getWriter(filePath);
+        writer.write(excels, true);
+        // 关闭writer，释放内存
+        writer.close();
+        return Msg.success().add("fileName","images/"+simpleUUID+".xlsx");
+    }
+
+
 
 }

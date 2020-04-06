@@ -16,4 +16,6 @@ public class StudentRewordVO {
     String stuAccount;
     String stuName;
     String teaName;
+    String detail;
+    String courseName;
 }

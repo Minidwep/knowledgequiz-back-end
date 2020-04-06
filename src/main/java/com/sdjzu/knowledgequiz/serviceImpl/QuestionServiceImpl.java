@@ -60,6 +60,21 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
     }
 
     @Override
+    public List<QuestionVO> selectQuestionVOByKeyAndCourse(String keyword, int courseId) {
+        return questionMapper.selectQuestionVOByKeyAndCourse(keyword,courseId);
+    }
+
+    @Override
+    public List<QuestionVO> selectQuestionVOHaveStarByKey(String keyword,int courseId) {
+        return questionMapper.selectQuestionVOHaveStarByKey(keyword,courseId);
+    }
+
+    @Override
+    public List<QuestionVO> selectQuestionVOHaveAnswerByKey(String keyword,int courseId) {
+        return questionMapper.selectQuestionVOHaveAnswerByKey(keyword,courseId);
+    }
+
+    @Override
     public IPage<QuestionVO> getQuestionList(Page<QuestionVO> page) {
         return questionMapper.getQuestionList(page);
     }

@@ -28,6 +28,12 @@ public interface QuestionService extends IService<Question> {
 
     List<QuestionVO> selectQuestionVOByKeyword(String keyword);
 
+    List<QuestionVO> selectQuestionVOByKeyAndCourse(String keyword,int courseId);
+    List<QuestionVO> selectQuestionVOHaveStarByKey(String keyword,int courseId);
+    List<QuestionVO> selectQuestionVOHaveAnswerByKey(String keyword,int courseId);
+
+
+
     IPage<QuestionVO> getQuestionList(Page<QuestionVO> page);
 
     IPage<QuestionVO> selectQuestionVOByKeywordAndIpage(Page<QuestionVO> page,String keyword);

@@ -26,6 +26,11 @@ public interface QuestionMapper extends BaseMapper<Question> {
     QuestionVO selectQuestionVOByQId(@Param("questionId")int questionId);
 
     List<QuestionVO> selectQuestionVOByKey(@Param("keyword")String keyword);
+
+    List<QuestionVO> selectQuestionVOByKeyAndCourse(@Param("keyword")String keyword,@Param("courseId") int courseId);
+    List<QuestionVO> selectQuestionVOHaveAnswerByKey(@Param("keyword")String keyword,@Param("courseId") int courseId);
+    List<QuestionVO> selectQuestionVOHaveStarByKey(@Param("keyword")String keyword,@Param("courseId") int courseId);
+
     IPage<QuestionVO> selectQuestionVOByKeywordAndIpage(@Param("page")Page<QuestionVO> page,@Param("keyword")String keyword);
 
 }
