@@ -15,4 +15,6 @@ import java.util.List;
 public interface AnswerService extends IService<Answer> {
     List<AnswerVO> getAnswerVO(int questionId);
     IPage<AnswerVO> getAnswerVOByAccount(Page<AnswerVO> page, String account);
+
+    AnswerVO getAnswerVoById(int id);
 }

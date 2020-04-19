@@ -49,7 +49,8 @@ public class StudentController {
     @Autowired
     StudentService studentService;
 
-
+    @Autowired
+    TeacherService teacherService;
 
     @Value("${file.path}")
     private String  imgPath;
@@ -154,9 +155,9 @@ public class StudentController {
         QueryWrapper<Question> queryWrapper3 = new QueryWrapper<>();
         queryWrapper3.eq("account", account);
         List<Question> questionNum = questionService.list(queryWrapper3);
-
+        Student student = studentService.searchByAcc(account);
         return Msg.success().add("answerNum",answerNum.size()).add("answerStarNum",answerStarNum.size())
-                .add("questionNum",questionNum.size());
+                .add("questionNum",questionNum.size()).add("user",student);
     }
 
     //      查看某个用户下的所有提出的问题
@@ -213,7 +214,6 @@ public class StudentController {
         iPage.setRecords(newList);
         return Msg.success().add("pageInfo",iPage);
     }
-
 
 
     //    修改密码
@@ -305,5 +305,14 @@ public class StudentController {
         writer.close();
         return Msg.success().add("fileName","images/"+simpleUUID+".xlsx");
     }
-
+    @GetMapping("/questionInfo/{id}")
+    public Msg getQuestion(@PathVariable("id") int id){
+        QuestionVO byId = questionService.selectQuestionVOByQId(id);
+        return Msg.success().add("questionInfo",byId);
+    }
+    @GetMapping("/answerInfo/{id}")
+    public Msg getAnswerInfo(@PathVariable("id") int id){
+        AnswerVO byId = answerService.getAnswerVoById(id);
+        return Msg.success().add("answerInfo",byId);
+    }
 }

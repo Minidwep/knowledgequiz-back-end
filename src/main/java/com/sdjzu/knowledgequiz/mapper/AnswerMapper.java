@@ -15,4 +15,6 @@ public interface AnswerMapper extends BaseMapper<Answer> {
     List<AnswerVO> getAnswerVO(@Param("questionId") int questionId);
 
     IPage<AnswerVO> getAnswerVOByAccount(@Param("page")Page<AnswerVO> page,@Param("account") String account);
+
+    AnswerVO getAnswerVoById(@Param("id") int id);
 }

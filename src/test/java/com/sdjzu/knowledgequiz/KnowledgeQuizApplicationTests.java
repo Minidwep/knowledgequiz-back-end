@@ -120,22 +120,34 @@ class KnowledgeQuizApplicationTests {
     }
     @Test
     void teacher(){
-        QueryWrapper<Question> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("account", "110002");
-        Map<String, Object> map1 = questionService.getMap(queryWrapper);
-        Iterator it = map1.entrySet().iterator();
+//        QueryWrapper<Question> queryWrapper = new QueryWrapper<>();
+//        queryWrapper.eq("account", "110002");
+//        Map<String, Object> map1 = questionService.getMap(queryWrapper);
+//        Iterator it = map1.entrySet().iterator();
+//
+//        while(it.hasNext()){
+//
+//            Map.Entry entry = (Map.Entry) it.next();
+//
+//            System.out.println(entry.getKey() + " : " + entry.getValue());
+//
+//        }
+//        List<Question> questions = questionMapper.selectList(queryWrapper);
+//        for (Question question : questions) {
+//            System.out.println(question.toString());
+//        }
 
-        while(it.hasNext()){
-
-            Map.Entry entry = (Map.Entry) it.next();
-
-            System.out.println(entry.getKey() + " : " + entry.getValue());
-
-        }
-        List<Question> questions = questionMapper.selectList(queryWrapper);
-        for (Question question : questions) {
-            System.out.println(question.toString());
-        }
+//        for (int i = 0; i < 100; i++) {
+//            Question question = new Question();
+//            question.setTitle("110002 question "+i);
+//            question.setUpTime(new Date());
+//            question.setAccount("110002");
+//            question.setCourseId(35);
+//            question.setDetail("<p>问题详情"+i+"</p>");
+//            questionService.save(question);
+//        }
+        Date date = new Date();
+        System.out.println(date.toString());
 
     }
     @Test

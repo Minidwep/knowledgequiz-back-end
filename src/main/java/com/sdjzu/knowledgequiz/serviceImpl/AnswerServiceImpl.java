@@ -29,4 +29,8 @@ public class AnswerServiceImpl extends ServiceImpl<AnswerMapper, Answer> impleme
         return answerMapper.getAnswerVOByAccount(page,account);
     }
 
+    @Override
+    public AnswerVO getAnswerVoById(int id) {
+        return answerMapper.getAnswerVoById(id);
+    }
 }

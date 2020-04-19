@@ -8,6 +8,12 @@
         WHERE question_id = #{questionId}
         order by up_time desc
     </select>
+    <select id="getAnswerVoById" resultType="com.sdjzu.knowledgequiz.vo.AnswerVO">
+        select answer.*,name username from answer
+        LEFT JOIN `user`
+        ON answer.account = user.account
+        WHERE answer.id = #{id}
+    </select>
 
     <select id="getAnswerVOByAccount" resultType="com.sdjzu.knowledgequiz.vo.AnswerVO">
         select answer.*,question.title from answer

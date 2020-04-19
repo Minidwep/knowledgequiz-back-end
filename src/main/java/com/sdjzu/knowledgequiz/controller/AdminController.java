@@ -138,7 +138,7 @@ public class AdminController {
             }
 //        去重的课程列表
             HashSet<String> courseSet = new HashSet<>();
-//        教师列表（带课程信息）
+//        学生列表（带课程信息）
             List<Student> students = new ArrayList<>();
 //        解析数据
             for (int i = 0; i < list.size() - 1; i++) {
@@ -153,7 +153,8 @@ public class AdminController {
                 for (String splitItem : splitCourses) {
                     courseSet.add(splitItem);
                 }
-                Student student = new Student(account, name ,pwd,college, splitCourses);
+                String classes = excelList.get(4).toString();
+                Student student = new Student(account, name ,pwd,college, splitCourses,classes);
                 students.add(student);
             }
 

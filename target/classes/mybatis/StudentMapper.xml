@@ -13,12 +13,13 @@
 
 
     <insert id="addStudent" parameterType="com.sdjzu.knowledgequiz.entity.Student" >
-       insert into student (student.account,student.pwd,student.name,student.college)
+       insert into student (student.account,student.pwd,student.name,student.college,student.classes)
              values (
             #{student.account},
             #{student.pwd},
             #{student.name},
-            #{student.college}
+            #{student.college},
+            #{student.classes}
         )
     </insert>
 
@@ -26,9 +27,9 @@
        update student set
             student.pwd = #{student.pwd},
             student.name = #{student.name},
-            student.college = #{student.college}
+            student.college = #{student.college},
+            student.classes = #{student.classes}
             where account = #{student.account}
-
     </update>
 
     <delete id="deleteStudent">
@@ -36,7 +37,7 @@
     </delete>
 
     <select id="getStuByKey" resultType="com.sdjzu.knowledgequiz.entity.Student">
-        select * from student where CONCAT(student.account,student.name,student.pwd)
+        select * from student where CONCAT(student.account,student.name,student.classes)
         LIKE CONCAT('%',#{keyword},'%')
     </select>
 

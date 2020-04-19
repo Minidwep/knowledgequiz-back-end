@@ -62,6 +62,8 @@ public class TeacherController {
         else
             return Msg.fail();
     }
+
+
     // 异步请求处理图片上传
     @PostMapping("/fileUpload")
     @ResponseBody
@@ -190,8 +192,10 @@ public class TeacherController {
         QueryWrapper<Question> queryWrapper3 = new QueryWrapper<>();
         queryWrapper3.eq("account", account);
         List<Question> questionNum = questionService.list(queryWrapper3);
+        //        用户信息
+        Teacher teacher = teacherService.searchByAcc(account);
         return Msg.success().add("answerNum",answerNum.size()).add("answerStarNum",answerStarNum.size())
-                .add("questionNum",questionNum.size());
+                .add("questionNum",questionNum.size()).add("user",teacher);
     }
 
     //      查看某个用户下的所有提出的问题
@@ -368,7 +372,16 @@ public class TeacherController {
         writer.close();
         return Msg.success().add("fileName","images/"+simpleUUID+".xlsx");
     }
-
+    @GetMapping("/questionInfo/{id}")
+    public Msg getQuestion(@PathVariable("id") int id){
+        QuestionVO byId = questionService.selectQuestionVOByQId(id);
+        return Msg.success().add("questionInfo",byId);
+    }
+    @GetMapping("/answerInfo/{id}")
+    public Msg getAnswerInfo(@PathVariable("id") int id){
+        AnswerVO byId = answerService.getAnswerVoById(id);
+        return Msg.success().add("answerInfo",byId);
+    }
 
 
 }
